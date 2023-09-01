@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+
+   
+
+.bg{
+     border: 5px skyblue;
+     display: flex;
+     justify-content: center;
+     background-image: url(image/cnct.jpg);
+     height:450px;
+     width: 1300px;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+    
+ }
+ tr,td{
+    padding:10px;
+    font-size:22px;
+    color:black;
+ }
+ @media(max-width:768px){
+    .bg{
+        width:100%;
+        height:100%;
+        background-image: url(image/cnct.jpg);
+        background-size: cover;
+        margin-top:30px;
+    }
+    
+    
+ }
+</style>
+<script> 
+    function myvalidate(form) {
+     var  userName = form.username.value;
+     var  email = form.email.value;
+     if(userName.length === 0) {
+         alert("You Must Enter valid username ");
+         return false;
+     }
+     if(email.length === 0) {
+         alert("You Must Enter valid email ");
+         return false;
+     }         
+   return true; 
+    }
+
+ </script>
+
+
+</head>
+<body>
+    <header>
+        <div class="header-2">
+            <div id="menu-bar" class="fas fa-bars"></div>
+            <nav class="navbar">
+                <a href="home.html" class="btn" role="button" style="border: green;" >HOME</a>
+                <a href="Registration-css.html" class="btn btn-info" role="button" style="border: green;" >ACCOUNT CREATION</a>
+                <a href="loginpage.html" class="btn btn-info" role="button" style="border: green;">LOGIN</a>
+                <a href="products.html" class="btn btn-info" role="button" style="border: green;">GROCERY ITEMS</a>
+                <a href="offerpage.html" class="btn btn-info" role="button" style="border: green;" >OFFER</a>
+                <a href="contact.html" class="btn btn-info" role="button" style="border: green;" >CONTACT US</a>
+            </nav>    
+        </div>
+    
+    </header>
+    
+        <div class="bg">
+            <form action="ContactSuccess.html" onsubmit="return validateForm(this)" method="post">
+         <h1 style="color:rgb(10, 9, 9); text-align: center;"><strong>CONTACT US</strong></h1>
+         <table>
+          <tr><td><label><strong>Full Name:</strong></label> </td> 
+            <td><input type= "text" name="username" id="username" placeholder="Enter name"></td></tr>
+          
+          <tr><td><strong>Phone number:</strong></td>
+             <td> <input type="tel" name="phone" pattern="^\d{10}$" placeholder="phone number" ></td></tr> 
+             <br>
+          <tr><td><strong>Email:</strong></td>
+          <td><input type="email" name="email" placeholder="Email" required></td></tr>
+
+          <tr><td><strong>Message:</strong></td>
+        <td><textarea placeholder="message" name="message" id="" cols="22" rows="3"></textarea> </td></tr>
+                <tr><td></td><td><strong><input type="submit" value="Submit" class="btn btn-primary"></strong></td></tr>   
+        </table>
+        </form>
+    </div>
+    </body>
+</html>

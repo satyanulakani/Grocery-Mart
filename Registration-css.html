@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>
+              
+    .bg{
+     border: 5px rgb(236, 227, 57);
+     display: flex;
+     justify-content: center;
+     font-size: large;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     background-image: url(image/login2.jpg);
+     height: 600px;
+     width: 1300px;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+ p,h1{
+    text-align: center;
+    
+ }
+ tr,td{
+    padding:4px;
+ }
+
+ @media(max-width:768px){
+    .bg{
+        width:100%;
+        height:100%;
+        background-image: url(image/login2.jpg);
+        background-size: cover;
+        margin-top:30px;
+    }
+}
+</style>
+<script>
+ function validateForm() {
+     const username = document.getElementById('fname').value;
+     const mail = document.getElementById('email').value;
+    //  const gen = document.getElementById('gender').value;
+     const phn = document.getElementById('phone').value;
+     const country = document.getElementById('country').value;
+     
+      if(username.length <3){
+                alert("Enter valid name & name must be above 3 characters");
+                return false;
+              }
+              
+        
+            else if (!validateEmail(mail)) {
+                    alert("Invalid email  & email must have @ and . format");
+                    return false;
+                }
+                
+                var ele = document.getElementsByName('gender');
+            
+            for (i = 0; i < ele.length; i++) {
+                if (ele[0].checked || ele[1].checked){
+                    return true;
+                }
+                else{
+                    alert("You must select gender ");
+                    return false;
+                }
+            }
+            if(phn.length <10) {    
+                alert("Enter valid mobile number");
+                            return false;
+                        }
+                        return true;
+                    }
+
+                
+    function validateEmail(mail) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(mail);
+    }
+
+</script>
+
+</head>
+<body>
+    <header>
+        <div class="header-2">
+            <div id="menu-bar" class="fas fa-bars"></div>
+            <nav class="navbar">
+                <a href="home.html" class="btn" role="button" style="border: green;" >HOME</a>
+                <a href="Registration-css.html" class="btn btn-info" role="button" style="border: green;" >ACCOUNT CREATION</a>
+                <a href="loginpage.html" class="btn btn-info" role="button" style="border: green;">LOGIN</a>
+                <a href="products.html" class="btn btn-info" role="button" style="border: green;">PRODUCTS</a>
+                <a href="offerpage.html" class="btn btn-info" role="button" style="border: green;" >OFFER</a>
+                <a href="contact.html" class="btn btn-info" role="button" style="border: green;" >CONTACT US</a>
+            </nav>    
+        </div>
+    
+    </header>
+       
+
+    <div class="bg">
+        <form name="myForm" action="RegisterSuccess.html" onsubmit="return validateForm()">
+                <h1>Register Here</h1>
+                
+                    <table>
+                        
+                        <tr><td><label> FIRST NAME:</label></td>
+                        <td><input type="text"  id="fname" placeholder="Enter your first name"  ></td></tr>
+                        <tr><td><label>MAIL-ID:</label></td>
+                        <td><input type="text" id="email" placeholder="Enter your e-mail id" ></td></tr>
+                        <tr><td><label>GENDER:</label></td>
+                        <td><input type="radio" id="gender" name="gender" value="Male">Male
+                        <input type="radio" id="gender" name="gender" value="Female">Female</td></tr>
+                       <tr><td><label>MOBILE NUMBER:</label>
+                        <td><input type="text" id="phone" pattern="[6-9]{1}[0-9]{9}" maxlength="10"  style="color: black;"  ></td></tr>
+                        <tr><td>
+                            <label>COUNTRY:</label></td>
+                            <td><select id = "Country" style="color: black;" required>
+                                <option name = "Country" value="Select" style="color: black;" >Select</option>
+                                <option name = "Country" value="India" style="color: black;" >India</option>
+                                <option name = "Country" value = "Pakistan" style="color: black;" >Pakistan</option>
+                                <option name = "Country" value ="America" style="color: black;">America</option>
+                                <option name = "Country" value="UAE" style="color: black;" >United Arab Emirates</option>
+                            </select></td>
+
+                        </tr>
+                        <tr><td><label>PASSWORD:</label></td>
+                        <td><input type="password" name="password" placeholder="Enter the password" ></td></tr>
+                        <tr><td><label>CONFIRM PASSWORD:</label></td>
+                        <td><input type="password" placeholder="confirm password" ></td></tr>
+                        <tr><td><label>ADDRESS:</label></td>
+                        <td><textarea value="area" cols="25" rows="3"  placeholder="Enter Address" ></textarea></td></tr>
+                        <tr><td></td><td> <input type="submit" value="submit" style="background-color:rgb(118, 181, 249);font-size: larger;"></td></tr>
+                    </table>
+            </form>
+    </body>
+</html>
